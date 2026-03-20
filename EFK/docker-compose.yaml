@@ -1,0 +1,30 @@
+version: '3.8'
+services:
+  elasticsearch:
+    image: docker.elastic.co/elasticsearch/elasticsearch:8.10.2
+    container_name: elasticsearch
+    environment:
+      - discovery.type=single-node
+      - xpack.security.enabled=false
+    ports:
+      - "9200:9200"
+
+  kibana:
+    image: docker.elastic.co/kibana/kibana:8.10.2
+    container_name: kibana
+    ports:
+      - "5601:5601"
+    depends_on:
+      - elasticsearch
+
+  filebeat:
+    image: docker.elastic.co/beats/filebeat:8.10.2
+    container_name: filebeat
+    user: root # 로그 파일 읽기 권한을 위해 root 사용
+    volumes:
+      # [중요] Airflow가 로그를 쌓는 호스트의 실제 경로를 연결
+      # 예: /home/user/airflow/logs 경로라고 가정
+      - /opt/airflow/logs:/usr/share/filebeat/airflow_logs:ro
+      - ./filebeat.yml:/usr/share/filebeat/filebeat.yml:ro
+    depends_on:
+      - elasticsearch
