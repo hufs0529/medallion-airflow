@@ -364,4 +364,4 @@ volumes:
 
 networks:
   monitoring_net:
-  external: true
+    external: true
