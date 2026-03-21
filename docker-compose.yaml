@@ -362,6 +362,6 @@ services:
 volumes:
   postgres-db-volume:
 
-networks:
-  monitoring_net:
-    external: true
+# networks:
+#   monitoring_net:
+#     external: true

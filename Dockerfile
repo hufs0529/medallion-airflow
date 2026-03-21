@@ -12,6 +12,13 @@ RUN apt-get update && \
     rm -rf /var/lib/apt/lists/*
 
 USER airflow
+
+# 5. DAG 및 관련 파일 복사 (K3s 배포를 위해 필수!)
+COPY ./dags /opt/airflow/dags
+COPY ./plugins /opt/airflow/plugins
+
+# 만약 데이터 처리에 필요한 초기 데이터가 있다면 이것도 포함
+# COPY ./raw-data /opt/airflow/raw-data
 # 2. pip 업그레이드 및 Provider 패키지 설치
 # RUN pip install --no-cache-dir --upgrade pip
 # RUN pip install --no-cache-dir \
