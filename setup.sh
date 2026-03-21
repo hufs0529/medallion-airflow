@@ -25,7 +25,7 @@ cd ..
 # 4. Airflow 실행
 echo "Starting Airflow Stack..."
 # 루트에 있는 파일이 docker-compose.yml 이라면 -f 옵션 사용
-docker-compose up -d --build
+docker-compose up -d 
 
 echo "==========================================="
 echo "All stacks are starting up!"
