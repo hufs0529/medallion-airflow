@@ -81,7 +81,7 @@ airflowVersion: "3.1.8"
 images:
   airflow: 
     repository: jeonghun970529/medallion-airflow
-    tag: "e4791c658013ba5359795ec31b02d43837b43fa9"
+    tag: "941d4d13400f3b3ad0657b4711e886bc8e56f288"
     # Specifying digest takes precedence over tag.
     digest: ~
     pullPolicy: IfNotPresent
@@ -98,33 +98,33 @@ images:
     # `config.kubernetes.worker_container_repository` and `config.kubernetes.worker_container_tag`
     # must be not set .
     repository: ~
-    tag: "e4791c658013ba5359795ec31b02d43837b43fa9"
+    tag: "941d4d13400f3b3ad0657b4711e886bc8e56f288"
     pullPolicy: IfNotPresent
   flower:
     repository: ~
-    tag: "e4791c658013ba5359795ec31b02d43837b43fa9"
+    tag: "941d4d13400f3b3ad0657b4711e886bc8e56f288"
     pullPolicy: IfNotPresent
   statsd:
     repository: quay.io/prometheus/statsd-exporter
-    tag: "e4791c658013ba5359795ec31b02d43837b43fa9"
+    tag: "941d4d13400f3b3ad0657b4711e886bc8e56f288"
     pullPolicy: IfNotPresent
   redis:
     repository: redis
     # Redis is limited to 7.2-bookworm due to licencing change
     # https://redis.io/blog/redis-adopts-dual-source-available-licensing/
-    tag: "e4791c658013ba5359795ec31b02d43837b43fa9"
+    tag: "941d4d13400f3b3ad0657b4711e886bc8e56f288"
     pullPolicy: IfNotPresent
   pgbouncer:
     repository: apache/airflow
-    tag: "e4791c658013ba5359795ec31b02d43837b43fa9"
+    tag: "941d4d13400f3b3ad0657b4711e886bc8e56f288"
     pullPolicy: IfNotPresent
   pgbouncerExporter:
     repository: apache/airflow
-    tag: "e4791c658013ba5359795ec31b02d43837b43fa9"
+    tag: "941d4d13400f3b3ad0657b4711e886bc8e56f288"
     pullPolicy: IfNotPresent
   gitSync:
     repository: registry.k8s.io/git-sync/git-sync
-    tag: "e4791c658013ba5359795ec31b02d43837b43fa9"
+    tag: "941d4d13400f3b3ad0657b4711e886bc8e56f288"
     pullPolicy: IfNotPresent
 
 # Select certain nodes for airflow pods.
@@ -3516,7 +3516,7 @@ postgresql:
   enabled: true
   image:
     repository: bitnamilegacy/postgresql
-    tag: "e4791c658013ba5359795ec31b02d43837b43fa9"
+    tag: "941d4d13400f3b3ad0657b4711e886bc8e56f288"
   auth:
     enablePostgresUser: true
     postgresPassword: postgres
@@ -3583,7 +3583,7 @@ config:
     namespace: '{{ .Release.Namespace }}'
     pod_template_file: '{{ include "airflow_pod_template_file" . }}/pod_template_file.yaml'
     worker_container_repository: '{{ .Values.images.airflow.repository | default .Values.defaultAirflowRepository }}'
-    worker_container_tag: "e4791c658013ba5359795ec31b02d43837b43fa9"
+    worker_container_tag: "941d4d13400f3b3ad0657b4711e886bc8e56f288"
     multi_namespace_mode: '{{ ternary "True" "False" .Values.multiNamespaceMode }}'
 
 # yamllint enable rule:line-length
