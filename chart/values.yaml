@@ -81,7 +81,7 @@ airflowVersion: "3.1.8"
 images:
   airflow: 
     repository: jeonghun970529/medallion-airflow
-    tag: latest
+    tag: "e4791c658013ba5359795ec31b02d43837b43fa9"
     # Specifying digest takes precedence over tag.
     digest: ~
     pullPolicy: IfNotPresent
@@ -98,33 +98,33 @@ images:
     # `config.kubernetes.worker_container_repository` and `config.kubernetes.worker_container_tag`
     # must be not set .
     repository: ~
-    tag: ~
+    tag: "e4791c658013ba5359795ec31b02d43837b43fa9"
     pullPolicy: IfNotPresent
   flower:
     repository: ~
-    tag: ~
+    tag: "e4791c658013ba5359795ec31b02d43837b43fa9"
     pullPolicy: IfNotPresent
   statsd:
     repository: quay.io/prometheus/statsd-exporter
-    tag: v0.29.0
+    tag: "e4791c658013ba5359795ec31b02d43837b43fa9"
     pullPolicy: IfNotPresent
   redis:
     repository: redis
     # Redis is limited to 7.2-bookworm due to licencing change
     # https://redis.io/blog/redis-adopts-dual-source-available-licensing/
-    tag: 7.2-bookworm
+    tag: "e4791c658013ba5359795ec31b02d43837b43fa9"
     pullPolicy: IfNotPresent
   pgbouncer:
     repository: apache/airflow
-    tag: airflow-pgbouncer-2025.03.05-1.23.1
+    tag: "e4791c658013ba5359795ec31b02d43837b43fa9"
     pullPolicy: IfNotPresent
   pgbouncerExporter:
     repository: apache/airflow
-    tag: airflow-pgbouncer-exporter-2025.03.05-0.18.0
+    tag: "e4791c658013ba5359795ec31b02d43837b43fa9"
     pullPolicy: IfNotPresent
   gitSync:
     repository: registry.k8s.io/git-sync/git-sync
-    tag: v4.4.2
+    tag: "e4791c658013ba5359795ec31b02d43837b43fa9"
     pullPolicy: IfNotPresent
 
 # Select certain nodes for airflow pods.
@@ -3516,7 +3516,7 @@ postgresql:
   enabled: true
   image:
     repository: bitnamilegacy/postgresql
-    tag: "16.1.0-debian-11-r15"
+    tag: "e4791c658013ba5359795ec31b02d43837b43fa9"
   auth:
     enablePostgresUser: true
     postgresPassword: postgres
@@ -3583,7 +3583,7 @@ config:
     namespace: '{{ .Release.Namespace }}'
     pod_template_file: '{{ include "airflow_pod_template_file" . }}/pod_template_file.yaml'
     worker_container_repository: '{{ .Values.images.airflow.repository | default .Values.defaultAirflowRepository }}'
-    worker_container_tag: '{{ .Values.images.airflow.tag | default .Values.defaultAirflowTag }}'
+    worker_container_tag: "e4791c658013ba5359795ec31b02d43837b43fa9"
     multi_namespace_mode: '{{ ternary "True" "False" .Values.multiNamespaceMode }}'
 
 # yamllint enable rule:line-length
