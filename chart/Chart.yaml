@@ -1,0 +1,11 @@
+apiVersion: v2
+name: medallion-airflow
+description: Airflow deployment for Medallion project
+type: application
+version: 1.0.0
+appVersion: "2.10.2" # 사용하려는 에어플로우 버전
+
+dependencies:
+  - name: airflow
+    version: "1.15.0" # Airflow Helm 차트의 버전 (최신 버전 확인 권장)
+    repository: "https://airflow.apache.org/"
